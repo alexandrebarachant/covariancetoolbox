@@ -1,4 +1,4 @@
-% A = riemann_mean(B,epsilon,tol)
+% A = riemann_median(B,epsilon,tol)
 %
 % Calcul du barycentre des matrice de covariances.
 % A : baricentre des K matrices NxN
@@ -8,7 +8,7 @@
 % tol : arret de la descente si le critère < tol
 
 
-function [A critere niter] = riemann_mean(B,args)
+function [A critere niter] = riemann_median(B,args)
 
 N_itermax = 100;
 if (nargin<2)||(isempty(args))
@@ -20,8 +20,8 @@ else
 end
 
 T = Tangent_space(B,A0);
-TA = mean(T,2);
-fc = sum(mean(T.^2,2));
+TA = median(T,2);
+fc = sum(mean(abs(T),2));
 A = UnTangent_space(TA,A0);
 niter = 1;
 
@@ -29,8 +29,8 @@ niter = 1;
 while (niter<N_itermax)
     niter = niter+1;
     T = Tangent_space(B,A);
-    TA = mean(T,2);
-    fcn = sum(mean(T.^2,2));
+    TA = median(T,2);
+    fcn = sum(mean(abs(T),2));
     A = UnTangent_space(TA,A);
     conv = abs((fcn-fc)/fc);
     if conv<tol
