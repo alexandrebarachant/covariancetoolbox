@@ -13,29 +13,30 @@ function [A critere niter] = riemann_median(B,args)
 N_itermax = 100;
 if (nargin<2)||(isempty(args))
     tol = 10^-5;
-    A0 = mean(B,3);
+    A = mean(B,3);
 else
     tol = args{1};
-    A0 = args{2};
+    A = args{2};
 end
 
-T = Tangent_space(B,A0);
-TA = median(T,2);
-fc = sum(mean(abs(T),2));
-A = UnTangent_space(TA,A0);
-niter = 1;
-
+niter = 0;
+fc = 0;
 
 while (niter<N_itermax)
     niter = niter+1;
+    % Tangent space mapping
     T = Tangent_space(B,A);
-    TA = median(T,2);
-    fcn = sum(mean(abs(T),2));
-    A = UnTangent_space(TA,A);
+    % sum of the distance
+    fcn = sum(sqrt(sum(T.^2)));
+    % improvement
     conv = abs((fcn-fc)/fc);
-    if conv<tol
+    if conv<tol % break if the improvement is below the tolerance
        break; 
     end
+    % arithmetic median in tangent space
+    TA = median(T,2);
+    % back to the manifold
+    A = UnTangent_space(TA,A);
     fc = fcn;
 end
 
@@ -44,3 +45,4 @@ if niter==N_itermax
 end
 
 critere = fc;
+
