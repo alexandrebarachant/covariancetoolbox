@@ -27,7 +27,7 @@
 %   status : a terminer 
 %   CEA/GRENOBLE-LETI/DTBS
 %
-%   See also MEAN, MEDIAN, RIEMAN_MEAN, REIMAN_MEDIAN.
+%   See also MEAN, MEDIAN, RIEMANN_MEAN, REIMANN_MEDIAN, RIEMANN_TRIMMED_MEAN.
 
 % [EOF: XXX.m]
 
@@ -43,6 +43,8 @@ end
 switch method_mean
     case 'riemann'
         C = riemann_mean(COV,arg_mean);
+    case 'riemanntrim'
+        C = riemann_trimmed_mean(COV,arg_mean);    
     case 'median'
         C = median(COV,3);
     case 'riemannmed'
