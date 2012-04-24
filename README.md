@@ -27,7 +27,10 @@ installer
 #### Generate a set of covraiance matrices and estimate the riemannian mean
 
 ```matlab
+% generate a wishart set of 10 5x5 covariances matrices with a degree of freedom equal to 11
 COV = generate_wishart_set(5,10,11);
+
+% estimate the Riemannian mean of this set.
 C = mean_covariances(COV,'riemann')
 
 C =
