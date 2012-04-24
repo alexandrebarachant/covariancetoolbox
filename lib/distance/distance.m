@@ -24,7 +24,7 @@
 %   author : A. Barachant
 %   date : 2011-XXXX
 %   version : 1.0 
-%   status : a terminer, terminé   
+%   status : a terminer, terminï¿½   
 %   CEA/GRENOBLE-LETI/DTBS
 %
 %   See also distance_riemann, distance_kullback, distance_logeuclid, norm.
@@ -47,6 +47,8 @@ switch method_dist
         d = distance_kullback(C1,C2);
     case 'logeuclid'
         d = distance_logeuclid(C1,C2);
+    case 'opttransp'
+        d = distance_opttransp(C1,C2);
     otherwise
         d = sqrt(norm(C1-C2,'fro'));
 end

@@ -51,6 +51,8 @@ switch method_mean
         C = riemann_median(COV,arg_mean);
     case 'logeuclid'
         C = logeuclid_mean(COV);
+    case 'opttransp'
+        C = opttransp_mean(COV);
     case 'geodesic'
         C = geodesic_mean(COV,arg_mean);
     otherwise
