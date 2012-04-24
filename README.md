@@ -12,7 +12,8 @@ installer
 
 ### Generate SPD matrices 
 
-* Generate a set of SPD matrices according to a wishart distribution : ```matlab [COV, Sig] =  generate_wishart_set(N,I,Df,Sig)```
+* Generate a set of SPD matrices according to a wishart distribution : ``` [COV, Sig] =  generate_wishart_set(N,I,Df,Sig)```
+
 ```matlab
 
  Generate a set of covariance matrices according to a Wishart distrib.
