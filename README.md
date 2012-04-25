@@ -13,15 +13,32 @@ installer
 ### Generate SPD matrices 
 
 * Generate a set of SPD matrices according to a wishart distribution : ``` [COV, Sig] =  generate_wishart_set(N,I,Df,Sig)```
-  * Inputs :
-    * N : the size of the matrices
-    * I : the number of matrices
-    * Df : the degee of freedom
-    * Sig : the parameter of the wishart disribution (if not set, take a random value)
-  * Outputs :
-    * COV : a set of I covariance matrices
-    * Sig : the parameter of the wishart disribution
-    
+
+### Distances
+
+* Distance between two covariance matrices (by default euclidean metric) : ```d = distance(C1,C2,metric)```
+* Kullback-Leibler distance : ```d = distance_kullback(C1,C2)```
+* Log-euclidean distance  : ```d = distance_logeuclid(C1,C2)```
+* Riemannian distance  : ```d = distance_riemann(C1,C2)```
+* Optimal transportation distance :  ```d = distance_opttransp(C1,C2)```
+
+### Estimation 
+
+* SCM
+* Fixed point
+* Normalized SCM
+* MCD
+
+### Geodesic
+
+* Geodesic between two covariance matrices (by default euclidean metric) : ```Ct = geodesic(C1,C2,t,metric)```
+* Euclidean geodesic : ```Ct = euclidean_geodesic(C1,C2,t)```
+* Log-euclidean geodesic : ```Ct = logeuclidean_geodesic(C1,C2,t)```
+* Riemannian geodesic : ```Ct = riemann_geodesic(C1,C2,t)```
+* Optimal transpotation geodesic : ```Ct = opttransp_geodesic(C1,C2,t)```
+
+
+
 ## Examples
 
 #### Generate a set of covraiance matrices and estimate the riemannian mean
