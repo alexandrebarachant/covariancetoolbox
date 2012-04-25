@@ -37,7 +37,30 @@ installer
 * Riemannian geodesic : ```Ct = riemann_geodesic(C1,C2,t)```
 * Optimal transpotation geodesic : ```Ct = opttransp_geodesic(C1,C2,t)```
 
+### Mean
 
+* Mean of a set of covariances matrices ( by default euclidean metric) : ```C = mean_covariances(COV,metric)```
+* Riemannian mean : ```C = riemann_mean(COV)```
+* Riemannian median : ```C = riemann_median(COV)```
+* Riemannian trimmed mean (excluding outliers) : ```C = riemann_trimmed_mean(COV)```
+* Log-euclidean mean : ```C = logeuclid_mean(COV)```
+* Optimal transportation mean : ```C = opttransp_mean(COV)```
+* Geodesic iterative mean : ```C = geodesic_mean(COV,metric)```
+
+### Riemannian utils
+
+* Canonical logarithm of a covariance matrix : ```lC = logm(C)```
+* Canonical exponential of a covariance matrix : ```eC = expm(C)```
+* Riemannian logaritmic map : ```S = RiemannLogMap(C)```
+* Riemannian exponential map : ```C = RiemannExpMap(S)```
+* Tangent space mapping of a set of covariance matrices : ```T = Tangent_space(COV,C)```
+* Manifold mapping of a set of tangent vectors : ```COV = Tangent_space(T,C)```
+* Tangent vector of a covariance matrix : ```t = tangent_vector(C1,C)```
+* Geodesic filtering of a set of covariance matrices : ```COVf = geodesic_filter(COV,C,W)```
+
+### Visualisation
+
+* plot the manifold of a set of 2x2 covariance matrices : ```manifold_plot(COV,label,boundary)```
 
 ## Examples
 
