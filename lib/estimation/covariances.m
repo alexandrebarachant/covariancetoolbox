@@ -24,7 +24,7 @@
 %   author : A. Barachant
 %   date : 2011-XXXX
 %   version : 1.0 
-%   status : a terminer, terminé   
+%   status : a terminer, terminï¿½   
 %   CEA/GRENOBLE-LETI/DTBS
 %
 %   See also COV, FPCOV, SHCOV, LTCOV, MCDCOV, NORMALIZEDSCM.
@@ -70,6 +70,11 @@ switch method_cov
         for i=1:Nt
             res = mcdcov(X(:,:,i)','plots',0);
             COV(:,:,i) = res.cov;
+        end
+    case 'hann'
+        window = repmat(hann(size(X,2)),1,size(X,1));
+        for i=1:Nt
+            COV(:,:,i) = cov(window.*X(:,:,i)');
         end
     otherwise
         for i=1:Nt
