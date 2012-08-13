@@ -1,6 +1,10 @@
 # Covariance Toolbox
 -------------------
+This toolbox contain a set of matlab functions dedicated to covariance matrices estimation and manipulation.
+The key functions mainly focus on Riemanian geometry of SPD matrices, with distance, geodesic, tangent space and mean estimation of covariance matrices under different metrics.
 
+This toolbox is licenced under GPLv3.
+ 
 
 ## Installation
 
