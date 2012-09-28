@@ -58,7 +58,7 @@ installer
 * Riemannian logaritmic map : ```S = RiemannLogMap(C)```
 * Riemannian exponential map : ```C = RiemannExpMap(S)```
 * Tangent space mapping of a set of covariance matrices : ```T = Tangent_space(COV,C)```
-* Manifold mapping of a set of tangent vectors : ```COV = Tangent_space(T,C)```
+* Manifold mapping of a set of tangent vectors : ```COV = UnTangent_space(T,C)```
 * Tangent vector of a covariance matrix : ```t = tangent_vector(C1,C)```
 * Geodesic filtering of a set of covariance matrices : ```COVf = geodesic_filter(COV,C,W)```
 
