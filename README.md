@@ -87,3 +87,25 @@ C =
    14.2517    8.8240   -3.9808    6.2503   37.4416
 
 ```
+
+#### Generate a set of trials and estimate the riemannian mean 
+
+```matlab
+% generate a set of trials , 5 channels, 100 time sample and 1000 trials
+X = randn(5,100,1000);
+
+% covariance matrix of each trial
+COV = covariances(X);
+
+% Riemannian mean
+C = mean_covariances(COV,'riemann')
+
+C =
+
+    0.9699    0.0012    0.0026    0.0050    0.0040
+    0.0012    0.9659   -0.0037    0.0059    0.0001
+    0.0026   -0.0037    0.9712   -0.0009   -0.0024
+    0.0050    0.0059   -0.0009    0.9687   -0.0034
+    0.0040    0.0001   -0.0024   -0.0034    0.9671
+
+```
