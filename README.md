@@ -32,6 +32,7 @@ installer
 * Fixed point
 * Normalized SCM
 * MCD
+* Set of covariance matrices for a set of 3D signals X : Nchannels x Tsamples x Ntrials ```COV = covariances(X)```
 
 ### Geodesic
 
