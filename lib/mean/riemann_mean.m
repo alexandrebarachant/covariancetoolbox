@@ -5,7 +5,7 @@
 %
 % B : Matrice NxNxK
 % epsilon : Pas de la descente de gradient
-% tol : arret de la descente si le critère < tol
+% tol : arret de la descente si le critï¿½re < tol
 
 
 function [A critere niter] = riemann_mean(B,args)
@@ -41,7 +41,7 @@ while (niter<N_itermax)
 end
 
 if niter==N_itermax
-    disp('Warning : Nombre d''itérations maximum atteint');
+    disp('Warning : Nombre d''itï¿½rations maximum atteint');
 end
 
 critere = fc;

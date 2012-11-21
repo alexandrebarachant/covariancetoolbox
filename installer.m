@@ -12,6 +12,7 @@ if isunix
     path([HOME,'/lib/estimation'],path);
     path([HOME,'/lib/mean'],path);
     path([HOME,'/lib/simulation'],path);
+    path([HOME,'/lib/jointdiag'],path);
 else
     path([HOME,'\lib'],path);
     path([HOME,'\lib\distance'],path);
@@ -21,5 +22,6 @@ else
     path([HOME,'\lib\estimation'],path);
     path([HOME,'\lib\mean'],path);
     path([HOME,'\lib\simulation'],path);
+    path([HOME,'\lib\jointdiag'],path);
 end    
 disp('Covariance toolbox activated');

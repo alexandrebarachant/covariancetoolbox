@@ -68,7 +68,7 @@ installer
 
 ## Examples
 
-#### Generate a set of covraiance matrices and estimate the riemannian mean
+#### Generate a set of covariance matrices and estimate the riemannian mean
 
 ```matlab
 % generate a wishart set of 10 5x5 covariances matrices with a degree of freedom equal to 11

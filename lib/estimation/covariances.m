@@ -61,6 +61,10 @@ switch method_cov
         for i=1:Nt
             COV(:,:,i) = shcov(X(:,:,i)');
         end
+    case 'corr'
+        for i=1:Nt
+            COV(:,:,i) = corr(X(:,:,i)');
+        end
     case 'ltcov'
         for i=1:Nt
             COV(:,:,i) = LTCov2(X(:,:,i),arg_cov{1},arg_cov{2});
