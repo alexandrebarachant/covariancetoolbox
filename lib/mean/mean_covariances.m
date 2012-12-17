@@ -53,6 +53,8 @@ switch method_mean
         C = logeuclid_mean(COV);
     case 'opttransp'
         C = opttransp_mean(COV);
+    case 'ld'
+        C = logdet_mean(COV);    
     case 'geodesic'
         C = geodesic_mean(COV,arg_mean);
     otherwise

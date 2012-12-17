@@ -49,6 +49,8 @@ switch method_dist
         d = distance_logeuclid(C1,C2);
     case 'opttransp'
         d = distance_opttransp(C1,C2);
+    case 'ld'
+        d = distance_ld(C1,C2);
     otherwise
         d = sqrt(norm(C1-C2,'fro'));
 end
