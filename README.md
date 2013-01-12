@@ -25,6 +25,7 @@ installer
 * Log-euclidean distance  : ```d = distance_logeuclid(C1,C2)```
 * Riemannian distance  : ```d = distance_riemann(C1,C2)```
 * Optimal transportation distance :  ```d = distance_opttransp(C1,C2)```
+* Log Determinant distance : ```d = distance_ld(C1,C2)```
 
 ### Estimation 
 
@@ -50,6 +51,7 @@ installer
 * Riemannian trimmed mean (excluding outliers) : ```C = riemann_trimmed_mean(COV)```
 * Log-euclidean mean : ```C = logeuclid_mean(COV)```
 * Optimal transportation mean : ```C = opttransp_mean(COV)```
+* Log Determinant mean : ```C = logdet_mean(COV)```
 * Geodesic iterative mean : ```C = geodesic_mean(COV,metric)```
 
 ### Riemannian utils
