@@ -74,7 +74,7 @@ installer
 
 * minimum distance to mean : ```Ytest = mdm(COVtest,COVtrain,Ytrain)```
 * minimum distance to mean + geodesic filtering : ```Ytest = fgmdm(COVtest,COVtrain,Ytrain)```
-* kmeans usupervised classification : ```Ytest = fgmdm(COVtest,COVtrain,Nclass)```
+* kmeans usupervised classification : ```Ytest = kmeanscov(COVtest,COVtrain,Nclass)```
 * Tangent space logistic regression (soon) : ```Ytest = tsglm(COVtest,COVtrain,Ytrain)```
 
 #### binary classification only
