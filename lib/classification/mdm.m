@@ -1,5 +1,5 @@
 function [Ytest d C] = mdm(COVtest,COVtrain,Ytrain,varargin)
-
+    
     if isempty(varargin)
         method_mean = 'riemann';
         method_dist = 'riemann';

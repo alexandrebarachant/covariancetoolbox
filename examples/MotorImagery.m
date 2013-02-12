@@ -95,3 +95,23 @@ disp('Accuracy (%) - Rows/Colums : Couple of classes');
 disp('------------------------------------------------------------------');
 displaytable(acc'+acc,{'Right Hand','Left Hand','Foot','Tongue'},10,{'.1f'},{'Right Hand','Left Hand','Foot','Tongue'})
 disp('------------------------------------------------------------------');
+
+%% Tangent Space LDA Classification - Binary
+metric_mean = 'riemann';
+update = 0;
+acc = diag(nan(4,1));
+
+for i=1:4
+    for j=i+1:4
+        ixtrain = (Ytrain==i)|(Ytrain==j);
+        ixtest = (trueYtest==i)|(trueYtest==j);
+        Ytest = tslda(COVtest(:,:,ixtest),COVtrain(:,:,ixtrain),Ytrain(ixtrain),metric_mean,update);
+        acc(i,j) = 100*mean(Ytest==trueYtest(ixtest));
+    end
+end
+
+disp('------------------------------------------------------------------');
+disp('Accuracy (%) - Rows/Colums : Couple of classes');
+disp('------------------------------------------------------------------');
+displaytable(acc'+acc,{'Right Hand','Left Hand','Foot','Tongue'},10,{'.1f'},{'Right Hand','Left Hand','Foot','Tongue'})
+disp('------------------------------------------------------------------');
