@@ -96,6 +96,31 @@ disp('------------------------------------------------------------------');
 displaytable(acc'+acc,{'Right Hand','Left Hand','Foot','Tongue'},10,{'.1f'},{'Right Hand','Left Hand','Foot','Tongue'})
 disp('------------------------------------------------------------------');
 
+%% Kmeans usupervised Classification - Binary case
+metric_mean = 'ld';
+metric_dist = 'ld';
+acc = diag(nan(4,1));
+
+for i=1:4
+    for j=i+1:4
+        ixtrain = (Ytrain==i)|(Ytrain==j);
+        ixtest = (trueYtest==i)|(trueYtest==j);
+        Ytest = kmeanscov(COVtest(:,:,ixtest),COVtrain(:,:,ixtrain),2,metric_mean,metric_dist);
+        Classes = unique(trueYtest(ixtest));
+        truelabels = (trueYtest(ixtest) == Classes(1))+1;
+        acc(i,j) = 100*mean(Ytest==truelabels);
+        if acc(i,j)<50
+            acc(i,j) = 100-acc(i,j);
+        end
+    end
+end
+
+disp('------------------------------------------------------------------');
+disp('Accuracy (%) - Rows/Colums : Couple of classes');
+disp('------------------------------------------------------------------');
+displaytable(acc'+acc,{'Right Hand','Left Hand','Foot','Tongue'},10,{'.1f'},{'Right Hand','Left Hand','Foot','Tongue'})
+disp('------------------------------------------------------------------');
+
 %% Tangent Space LDA Classification - Binary case
 % the riemannian metric
 metric_mean = 'riemann';
