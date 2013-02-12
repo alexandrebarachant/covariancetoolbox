@@ -6,7 +6,7 @@ function A = logdet_mean(B)
 
 K = size(B,3); % Nombre de matrices
 A = mean(B,3);
-tol = 10^-2;
+tol = 10^-3;
 imp = tol + 1;
 while imp>tol
     fc = zeros(size(B,1));

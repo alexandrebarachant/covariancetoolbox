@@ -69,6 +69,18 @@ installer
 
 * plot the manifold of a set of 2x2 covariance matrices : ```manifold_plot(COV,label,boundary)```
 
+### Classification
+#### Multiclass
+
+* minimum distance to mean : ```Ytest = mdm(COVtest,COVtrain,Ytrain)```
+* minimum distance to mean + geodesic filtering : ```Ytest = fgmdm(COVtest,COVtrain,Ytrain)```
+* Tangent space logistic regression (soon) : ```Ytest = tsglm(COVtest,COVtrain,Ytrain)```
+
+#### binary classification only
+
+* Tangent space regularized LDA (soon) : ```Ytest = tslda(COVtest,COVtrain,Ytrain)```
+* Tangent space SVM (soon) : ```Ytest = tssvm(COVtest,COVtrain,Ytrain)```
+
 ## Examples
 
 #### Generate a set of covariance matrices and estimate the riemannian mean
@@ -111,3 +123,6 @@ C =
     0.0040    0.0001   -0.0024   -0.0034    0.9671
 
 ```
+#### Classification
+
+see example folder
