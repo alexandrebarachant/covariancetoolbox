@@ -56,7 +56,7 @@ disp('------------------------------------------------------------------');
 displaytable(acc',metric_mean,10,{'.1f'},metric_dist)
 disp('------------------------------------------------------------------');
 
-%% MDM classification - Binary
+%% MDM classification - Binary case
 metric_mean = 'riemann';
 metric_dist = 'riemann';
 acc = diag(nan(4,1));
@@ -76,7 +76,7 @@ disp('------------------------------------------------------------------');
 displaytable(acc'+acc,{'Right Hand','Left Hand','Foot','Tongue'},10,{'.1f'},{'Right Hand','Left Hand','Foot','Tongue'})
 disp('------------------------------------------------------------------');
 
-%% Discriminant geodesic filtering + MDM Classification - Binary
+%% Discriminant geodesic filtering + MDM Classification - Binary case
 metric_mean = 'riemann';
 metric_dist = 'riemann';
 acc = diag(nan(4,1));
@@ -96,8 +96,11 @@ disp('------------------------------------------------------------------');
 displaytable(acc'+acc,{'Right Hand','Left Hand','Foot','Tongue'},10,{'.1f'},{'Right Hand','Left Hand','Foot','Tongue'})
 disp('------------------------------------------------------------------');
 
-%% Tangent Space LDA Classification - Binary
+%% Tangent Space LDA Classification - Binary case
+% the riemannian metric
 metric_mean = 'riemann';
+% update tangent space to test data - necessary if test data corresponds to
+% another session. by default 0.
 update = 0;
 acc = diag(nan(4,1));
 

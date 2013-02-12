@@ -78,7 +78,7 @@ installer
 
 #### binary classification only
 
-* Tangent space regularized LDA (soon) : ```Ytest = tslda(COVtest,COVtrain,Ytrain)```
+* Tangent space regularized LDA : ```Ytest = tslda(COVtest,COVtrain,Ytrain)```
 * Tangent space SVM (soon) : ```Ytest = tssvm(COVtest,COVtrain,Ytrain)```
 
 ## Examples
