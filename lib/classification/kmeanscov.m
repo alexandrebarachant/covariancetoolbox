@@ -1,4 +1,4 @@
-function Ytest = kmeanscov(Ctest,Ctrain,Nclass,varargin)
+function [Ytest d C] = kmeanscov(Ctest,Ctrain,Nclass,varargin)
 
     if isempty(varargin)
         method_mean = 'riemann';

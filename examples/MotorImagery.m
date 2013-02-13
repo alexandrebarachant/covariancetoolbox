@@ -63,9 +63,12 @@ acc = diag(nan(4,1));
 
 for i=1:4
     for j=i+1:4
+        % Select the trials
         ixtrain = (Ytrain==i)|(Ytrain==j);
         ixtest = (trueYtest==i)|(trueYtest==j);
+        % Classification
         Ytest = mdm(COVtest(:,:,ixtest),COVtrain(:,:,ixtrain),Ytrain(ixtrain),metric_mean,metric_dist);
+        % Accuracy
         acc(i,j) = 100*mean(Ytest==trueYtest(ixtest));
     end
 end
@@ -83,9 +86,12 @@ acc = diag(nan(4,1));
 
 for i=1:4
     for j=i+1:4
+        % Select the trials
         ixtrain = (Ytrain==i)|(Ytrain==j);
         ixtest = (trueYtest==i)|(trueYtest==j);
+        % Classification
         Ytest = fgmdm(COVtest(:,:,ixtest),COVtrain(:,:,ixtrain),Ytrain(ixtrain),metric_mean,metric_dist);
+        % Accuracy
         acc(i,j) = 100*mean(Ytest==trueYtest(ixtest));
     end
 end
@@ -97,17 +103,22 @@ displaytable(acc'+acc,{'Right Hand','Left Hand','Foot','Tongue'},10,{'.1f'},{'Ri
 disp('------------------------------------------------------------------');
 
 %% Kmeans usupervised Classification - Binary case
-metric_mean = 'ld';
-metric_dist = 'ld';
+metric_mean = 'riemann';
+metric_dist = 'riemann';
 acc = diag(nan(4,1));
 
+% for each couple of classes
 for i=1:4
     for j=i+1:4
+        % Select the trials
         ixtrain = (Ytrain==i)|(Ytrain==j);
         ixtest = (trueYtest==i)|(trueYtest==j);
+        % Classification
         Ytest = kmeanscov(COVtest(:,:,ixtest),COVtrain(:,:,ixtrain),2,metric_mean,metric_dist);
+        % Find the right labels
         Classes = unique(trueYtest(ixtest));
         truelabels = (trueYtest(ixtest) == Classes(1))+1;
+        % Accuracy
         acc(i,j) = 100*mean(Ytest==truelabels);
         if acc(i,j)<50
             acc(i,j) = 100-acc(i,j);
@@ -124,16 +135,19 @@ disp('------------------------------------------------------------------');
 %% Tangent Space LDA Classification - Binary case
 % the riemannian metric
 metric_mean = 'riemann';
-% update tangent space to test data - necessary if test data corresponds to
+% update tangent space for the test data - necessary if test data corresponds to
 % another session. by default 0.
 update = 0;
 acc = diag(nan(4,1));
 
 for i=1:4
     for j=i+1:4
+        % Select the trials
         ixtrain = (Ytrain==i)|(Ytrain==j);
         ixtest = (trueYtest==i)|(trueYtest==j);
+        % Classification
         Ytest = tslda(COVtest(:,:,ixtest),COVtrain(:,:,ixtrain),Ytrain(ixtrain),metric_mean,update);
+        % Accuracy
         acc(i,j) = 100*mean(Ytest==trueYtest(ixtest));
     end
 end
