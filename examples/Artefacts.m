@@ -10,7 +10,7 @@ overlap = 3*data.fs-data.fs/8;
 
 COV=eeg2cov(data.data',window,overlap);
 
-[C, th] = potato_estimation(COV);
+[C, th] = potato_estimation_iterativ(COV);
 [~,d] = potato_detection(COV,C,th);
 tcov = (window-overlap)/(data.fs):(window-overlap)/(data.fs):(Nt-window)/data.fs;
 

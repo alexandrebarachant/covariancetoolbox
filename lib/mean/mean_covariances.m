@@ -43,6 +43,8 @@ end
 switch method_mean
     case 'riemann'
         C = riemann_mean(COV,arg_mean);
+    case 'riemanndiag'
+        C = riemann_diag_mean(COV,arg_mean);    
     case 'riemanntrim'
         C = riemann_trimmed_mean(COV,arg_mean);    
     case 'median'
@@ -57,6 +59,18 @@ switch method_mean
         C = logdet_mean(COV);    
     case 'geodesic'
         C = geodesic_mean(COV,arg_mean);
+    case 'harmonic'
+        iCOV = zeros(size(COV));
+        for i=1:size(COV,3)
+            iCOV(:,:,i) = inv(COV(:,:,i));
+        end
+        C = inv(mean(iCOV,3));
+    case 'geometric'
+        B = COV(:,:,1);
+        for i=2:size(COV,3)
+            B = B*COV(:,:,i);
+        end
+        C = B^(1/size(COV,3));        
     otherwise
         C = mean(COV,3);
 end

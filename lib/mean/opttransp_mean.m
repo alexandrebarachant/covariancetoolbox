@@ -10,9 +10,9 @@
 
 function [A critere niter] = opttransp_mean(B,args)
 Imat = size(B,3);
-N_itermax = 100;
+N_itermax = 200;
 if (nargin<2)||(isempty(args))
-    tol = 10^-5;
+    tol = 10^-3;
     %A = mean(B,3);
     A = eye(size(B,1));
 else
@@ -46,7 +46,7 @@ end
 A = ((1/Imat)*K)^2;
 
 if niter==N_itermax
-    disp('Warning : Nombre d''it�rations maximum atteint');
+    disp('Warning : Nombre d''itérations maximum atteint');
 end
 
 critere = fc;

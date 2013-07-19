@@ -8,7 +8,7 @@
 % tol : arret de la descente si le crit�re < tol
 
 
-function [A critere niter] = riemann_mean(B,args)
+function [A, critere, niter] = riemann_mean(B,args)
 
 N_itermax = 100;
 if (nargin<2)||(isempty(args))

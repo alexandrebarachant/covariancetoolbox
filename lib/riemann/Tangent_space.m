@@ -1,5 +1,5 @@
 
-function Feat = Tangent_space(COV,C)
+function [Feat C] = Tangent_space(COV,C)
 NTrial = size(COV,3);
 N_elec = size(COV,1);
 Feat = zeros(N_elec*(N_elec+1)/2,NTrial);

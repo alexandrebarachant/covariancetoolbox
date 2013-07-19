@@ -1,4 +1,4 @@
-function [V COV2] = riemann_diag(COV,methodcov)
+function [V, COV2] = riemann_diag(COV,methodcov)
 if nargin <2
     methodcov = 'cov';
 end

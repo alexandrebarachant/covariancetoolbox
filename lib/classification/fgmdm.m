@@ -1,4 +1,4 @@
-function [Ytest d C] = fgmdm(COVtest,COVtrain,Ytrain,varargin)
+function [Ytest,d,C] = fgmdm(COVtest,COVtrain,Ytrain,varargin)
 
     if isempty(varargin)
         method_mean = 'riemann';
@@ -11,8 +11,8 @@ function [Ytest d C] = fgmdm(COVtest,COVtrain,Ytrain,varargin)
     Nclass = length(labels);
     
     % geodesic filtering
-    [W Cg] = fgda(COVtrain,Ytrain,method_mean,{},'shcovft',{});
+    [W,Cg] = fgda(COVtrain,Ytrain,method_mean,{},'shcov',{});
     COVtrain = geodesic_filter(COVtrain,Cg,W(:,1:Nclass-1));
     COVtest = geodesic_filter(COVtest,Cg,W(:,1:Nclass-1));    
     
-    [Ytest d C] = mdm(COVtest,COVtrain,Ytrain,method_mean,method_dist);
+    [Ytest, d, C] = mdm(COVtest,COVtrain,Ytrain,method_mean,method_dist);
