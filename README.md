@@ -1,3 +1,7 @@
+#### This toolbox is no longer supported by its author. The code is working on the last 2015 Matlab version, but may not be compatible with future versions. Consider using [pyRiemann](http://pythonhosted.org/pyriemann/) as a (python) alternative.
+
+Fee free to fork the toolbox and start your own support :)
+
 # Covariance Toolbox
 -------------------
 This toolbox contain a set of matlab functions dedicated to covariance matrices estimation and manipulation.
